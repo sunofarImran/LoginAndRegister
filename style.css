@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(images/images.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+.logo{
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+
+}
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color: azure;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+    
+}
+.navigation a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+    width: 100px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
+
+}
+
+.navigation .btnSignup-popup{
+    width: 100px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
+
+}
+
+.navigation .btnLogin-popup:hover{
+    background: #fff;
+    color:#1629
+
+}
+
+.navigation .btnSignup-popup:hover{
+    background: #fff;
+    color:#1629
+
+}
+.container{
+    position: relative;
+     max-width:430px;
+    width: 100%;
+    background: transparent;
+    border: 2px solid rgba(241, 196, 196, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform: scale(0);
+}
+
+.container.active-popup{
+    transform:scale(1)
+}
+.container.active-popup1{
+    transform:scale(1)
+}
+.container .forms{
+    display: flex;
+    align-items: center;
+    width:200%;
+    height: 440px;
+    transition: height .2s ease;
+}
+
+.container .form{
+    width: 50%;
+    padding:30px;
+    background-color: #fff;
+    transition: margin-left .18s ease;
+}
+
+.container.active .login{
+    margin-left: -50%;
+    opacity: 0;
+    transition: margin-left .18s ease,opacity .15s ease;
+} 
+
+
+.container .signup{
+    opacity: 0;
+    transition: opacity .09s ease;
+}
+.container.active .signup{
+    opacity: 1;
+    transition: opacity .2s ease;
+}
+
+.container.active .forms{
+    height: 600px;
+}
+
+.container .uil-times{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.container .form .title{
+    position: relative;
+    font-size: 30px;
+    font-weight: 500;
+}
+.form .title::before{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: blue;
+    border-bottom: 25px;
+}
+.form .input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+.input-field input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border:none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all .2s ease;
+}
+.input-field input:is(:focus,:valid){
+    border-bottom-color: blue;
+}
+.input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);font-size: 23px;
+    color: #999;
+
+}
+.input-field input:is(:focus,:valid)~i{
+    border-bottom-color: blue;
+}
+.input-field i.icon{
+    left: 0;
+}
+.input-field i.showHidePw{
+    right:0;
+    cursor: pointer;
+    padding: 10px;
+}
+.form .checkbox-text{
+    display: flex;
+    justify-content: space-between;
+    margin-top:20px;
+}
+.checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+.checkbox-content input{
+    margin: 0 8px -2px 4px;
+    accent-color: rgb(83, 83, 139);
+}
+.form .text{
+    color: #0e0404;
+    font-size: 14px;
+}
+.form a.text{
+    color: #040405;
+    text-decoration: none;
+
+}
+.form a:hover{
+    text-decoration: underline;
+}
+.form .button{
+    margin-top: 35px;
+}
+.form .button input{
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius :6px;
+    background-color: rgb(47, 71, 71);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.button input:hover{
+    background-color: rgb(53, 59, 59);;
+}
+.form .login-signup{
+    margin-top: 30px;
+    text-align: center;
+}
